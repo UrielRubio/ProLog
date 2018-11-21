@@ -1,15 +1,20 @@
 espadre(carlos, arturo).
-esmadre(gema, arturo).
 espadre(luis, juana).
-esmadre(susan, juana).
 espadre(arturo, juan).
 espadre(arturo, maria).
 espadre(arturo, pedro).
-espadre(juana, juan).
-espadre(juana, maria).
-espadre(juana, pedro).
+esmadre(gema, arturo).
+esmadre(susan, juana).
+esmadre(juana, juan).
+esmadre(juana, maria).
+esmadre(juana, pedro).
 
-
-%esabuelo()
-%eshermano()
-%eshijo()
+%Hermanos
+eshermano(X, Y):- espadre(A, X), espadre(A, Y), (X\=Y).
+%Abuelos
+esabuelo(X, Y):- (espadre(X, A), espadre(A, Y));
+                  (esmadre(X, A), esmadre(A, Y));
+                  (esmadre(X, A), espadre(A, Y));
+                  (espadre(X, A), esmadre(A, Y)).
+%Hijo()
+eshijo(X, Y):- espadre(Y, X); esmadre(Y, X).
