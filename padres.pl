@@ -9,6 +9,7 @@ espadre(juana, juan).
 espadre(juana, maria).
 espadre(juana, pedro).
 
+
 %esabuelo()
 %eshermano()
 %eshijo()
